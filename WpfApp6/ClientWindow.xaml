@@ -1,0 +1,55 @@
+﻿<Window x:Class="WpfApp6.ClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp6"
+        mc:Ignorable="d"
+            Title="Клиентский интерфейс" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Новый заказ">
+                <StackPanel Margin="10">
+                    <GroupBox Header="Информация о клиенте">
+                        <StackPanel>
+                            <TextBox Name="txtCompanyName" Margin="5" Padding="3" Text="Название компании"/>
+                            <TextBox Name="txtContactPerson" Margin="5" Padding="3" Text="Контактное лицо"/>
+                            <TextBox Name="txtPhone" Margin="5" Padding="3" Text="Телефон"/>
+                            <TextBox Name="txtEmail" Margin="5" Padding="3" Text="Email"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Услуги" Margin="0,10,0,0">
+                        <StackPanel>
+                            <DataGrid Name="servicesGrid" AutoGenerateColumns="False" Height="150" Margin="5"
+                              CanUserAddRows="False" SelectionMode="Single">
+                                <DataGrid.Columns>
+                                    <DataGridCheckBoxColumn Header="Выбрать" Width="Auto"/>
+                                    <DataGridTextColumn Header="Услуга" Binding="{Binding ServiceName}"/>
+                                    <DataGridTextColumn Header="Категория" Binding="{Binding Category}"/>
+                                    <DataGridTextColumn Header="Цена" Binding="{Binding BasePrice}"/>
+                                    <DataGridTextColumn Header="Длительность" Binding="{Binding DurationDays}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button Content="Добавить выбранные услуги" Margin="5" Click="AddServices_Click"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Выбранные услуги" Margin="0,10,0,0">
+                        <DataGrid Name="selectedServicesGrid" AutoGenerateColumns="False" Height="100" Margin="5"
+                          CanUserAddRows="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Услуга" Binding="{Binding ServiceName}"/>
+                                <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}"/>
+                                <DataGridTextColumn Header="Цена" Binding="{Binding UnitPrice}"/>
+                                <DataGridTextColumn Header="Сумма" Binding="{Binding Subtotal}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+
+                    <Button Content="Оформить заказ" Margin="5,20,5,5" Height="30" Click="PlaceOrder_Click"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfApp6.ClientEditDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp6"
+        mc:Ignorable="d"
+            Title="Редактирование клиента" Height="300" Width="400">
+    <Grid>
+        <StackPanel Margin="10">
+            <Label Content="Название компании:"/>
+            <TextBox Text="{Binding CompanyName}" Margin="0,0,0,10"/>
+
+            <Label Content="Контактное лицо:"/>
+            <TextBox Text="{Binding ContactPerson}" Margin="0,0,0,10"/>
+
+            <Label Content="Телефон:"/>
+            <TextBox Text="{Binding Phone}" Margin="0,0,0,10"/>
+
+            <Label Content="Email:"/>
+            <TextBox Text="{Binding Email}" Margin="0,0,0,10"/>
+
+            <CheckBox Content="Активен" IsChecked="{Binding IsActive}" Margin="0,0,0,10"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Сохранить" Width="80" Margin="5" Click="Save_Click"/>
+                <Button Content="Отмена" Width="80" Margin="5" Click="Cancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
